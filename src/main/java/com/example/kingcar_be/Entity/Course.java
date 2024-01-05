@@ -8,7 +8,7 @@ public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
-    private long CourseId;
+    private long courseId;
 
     @NotNull
     @Column(name = "departure")

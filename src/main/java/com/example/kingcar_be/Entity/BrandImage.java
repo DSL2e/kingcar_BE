@@ -14,6 +14,7 @@ public class BrandImage {
     @Column(name = "brand_name")
     private String brandName;
 
+    @NotNull
     @Column(name = "brand_logo")
     private String brandLogo;
 }
