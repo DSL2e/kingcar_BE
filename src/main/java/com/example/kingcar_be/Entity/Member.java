@@ -23,4 +23,13 @@ public class Member {
 
     @Column(name = "car_model")
     private String carModel;
+
+    @OneToOne(mappedBy = "from", fetch = FetchType.LAZY)
+    @JoinColumn(name = "from")
+    private Request from;
+
+    @OneToOne(mappedBy = "to", fetch = FetchType.LAZY)
+    @JoinColumn(name = "to")
+    private Request to;
+
 }
