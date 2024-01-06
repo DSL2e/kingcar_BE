@@ -17,4 +17,7 @@ public class Course {
     @NotNull
     @Column(name = "arrivals")
     private String arrivals;
+
+    @OneToOne
+    private Article article;
 }

@@ -3,11 +3,16 @@ package com.example.kingcar_be.Entity;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.List;
+
 @Entity
 public class Member {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private long memberId;
+
+    @OneToMany(mappedBy = "writer", fetch = FetchType.LAZY)
+    private List<Article> articles;
 
     @NotNull
     @Column(name = "nickname")
@@ -18,4 +23,13 @@ public class Member {
 
     @Column(name = "car_model")
     private String carModel;
+
+    @OneToOne(mappedBy = "from", fetch = FetchType.LAZY)
+    @JoinColumn(name = "from")
+    private Request from;
+
+    @OneToOne(mappedBy = "to", fetch = FetchType.LAZY)
+    @JoinColumn(name = "to")
+    private Request to;
+
 }
