@@ -1,12 +1,18 @@
 package com.example.kingcar_be.Entity;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
 public class Member {
+    public Member(String nickname){
+        this.nickname=nickname;
+    }
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_id")
     private long memberId;
