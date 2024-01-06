@@ -1,6 +1,7 @@
 package com.example.kingcar_be.Entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Member {
     public Member(String nickname){
         this.nickname=nickname;

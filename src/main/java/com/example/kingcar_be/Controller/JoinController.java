@@ -1,6 +1,7 @@
 package com.example.kingcar_be.Controller;
 
 import com.example.kingcar_be.DTO.JoinRequest;
+import com.example.kingcar_be.DTO.MemberIdResponse;
 import com.example.kingcar_be.DTO.Status;
 import com.example.kingcar_be.Service.JoinService;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class JoinController {
     private final JoinService joinService;
     @PostMapping("/members")
-    public ResponseEntity<Status> join(@RequestBody JoinRequest request){
-        return ResponseEntity.ok(joinService.join(request.getNickname()));
+    public ResponseEntity<MemberIdResponse> join(@RequestBody JoinRequest request){
+        return ResponseEntity.status(201).body(joinService.join(request.getNickname()));
     }
 
     /*
