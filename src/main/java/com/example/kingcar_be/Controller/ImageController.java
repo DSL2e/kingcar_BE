@@ -1,5 +1,6 @@
 package com.example.kingcar_be.Controller;
 
+import com.example.kingcar_be.DTO.BrandResponse;
 import com.example.kingcar_be.Service.AwsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +16,14 @@ public class ImageController {
 
     //model 이미지 전달
     @GetMapping("/members/car/model/{brandName}")
-    public List<String> getBoardImages(@PathVariable("brandName") String brandName){
+    public List<String> getModelImages(@PathVariable("brandName") String brandName){
 
         return awsService.getModelImagesAll("model/", brandName);
     }
 
     //brand 이미지 전달
     @GetMapping("/members/car/brand")
-    public List<String> getBrandImages (){
+    public List<BrandResponse> getBrandImages (){
         return awsService.getBrandImageAll("brand/");
     }
 }
