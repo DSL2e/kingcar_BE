@@ -12,6 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ImageController {
     private final AwsService awsService;
+
     //model 이미지 전달
     @GetMapping("/members/car/model/{brandName}")
     public List<String> getBoardImages(@PathVariable("brandName") String brandName){
