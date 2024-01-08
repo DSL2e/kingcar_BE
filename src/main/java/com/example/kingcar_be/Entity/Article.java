@@ -53,5 +53,5 @@ public class Article {
     private String contents;
 
     @NotNull
-    private int connection;
+    private boolean connection;
 }
