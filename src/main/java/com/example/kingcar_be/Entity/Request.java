@@ -3,25 +3,33 @@ package com.example.kingcar_be.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
-
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Request {
+    public Request(Member from, Member to, Article article, boolean connection){
+        this.from=from;
+        this.to=to;
+        this.article=article;
+        this.connection=connection;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "request_id")
-    private long requestId;
+    private Long requestId;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "fromList_memberId")
     private Member from;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "toList_memberId")
     private Member to;
 
     @NotNull
@@ -32,5 +40,9 @@ public class Request {
     @NotNull
     @Column(name = "connection")
     private boolean connection;
+
+    public void registerWinner(){
+        this.connection=true;
+    }
 
 }

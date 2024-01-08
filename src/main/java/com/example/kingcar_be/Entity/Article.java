@@ -56,4 +56,8 @@ public class Article {
 
     @NotNull
     private boolean connection;
+
+    public void isConnected(){
+        this.connection=true;
+    }
 }
