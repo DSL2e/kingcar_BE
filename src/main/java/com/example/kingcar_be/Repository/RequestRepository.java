@@ -13,4 +13,6 @@ import java.util.List;
 public interface RequestRepository extends JpaRepository<Request, Long> {
     @Query("select r from Request r where r.from.memberId = :fromId and r.to.memberId = :toId and r.article.articleId = :articleId")
     List<Request> findByFromToArticle(Long fromId, Long toId, Long articleId);
+
+    List<Request> findAllByArticleArticleId(Long articleId);
 }

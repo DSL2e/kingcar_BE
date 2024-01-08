@@ -1,6 +1,7 @@
 package com.example.kingcar_be.Entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Request {
     public Request(Member from, Member to, Article article, boolean connection){
         this.from=from;
