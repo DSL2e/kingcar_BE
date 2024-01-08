@@ -15,7 +15,6 @@ public class ArticleDetailController {
     public ArticleDetail getArticleDetail(@PathVariable(name = "article-id") Long articleId) {
         return articleDetailService.detail(articleId);
     }
-
     @PatchMapping("/articles/{article-id}/{TorF}")
     public ArticleDetail updateArticleDetail(@PathVariable(name = "article-id") Long articleId,@PathVariable(name = "TorF") boolean TorF) {
         return articleDetailService.update(articleId,TorF);

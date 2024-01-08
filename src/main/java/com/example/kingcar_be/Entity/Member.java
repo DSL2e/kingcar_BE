@@ -12,6 +12,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Getter
+@Setter
 public class Member {
     public Member(String nickname){
         this.nickname=nickname;
@@ -20,6 +21,7 @@ public class Member {
     @Column(name = "member_id")
     private long memberId;
 
+    @Getter
     @OneToMany(mappedBy = "writer", fetch = FetchType.LAZY)
     private List<Article> articles;
 
@@ -47,4 +49,6 @@ public class Member {
     public void registerModel(String carModel){
         this.carModel=carModel;
     }
+
+
 }
