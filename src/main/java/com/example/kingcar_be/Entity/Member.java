@@ -33,13 +33,11 @@ public class Member {
     @Column(name = "car_model")
     private String carModel;
 
-    @OneToOne(mappedBy = "from", fetch = FetchType.LAZY)
-    @JoinColumn(name = "from")
-    private Request from;
+    @OneToMany(mappedBy = "from", fetch = FetchType.LAZY)
+    private List<Request> fromList;
 
-    @OneToOne(mappedBy = "to", fetch = FetchType.LAZY)
-    @JoinColumn(name = "to")
-    private Request to;
+    @OneToMany(mappedBy = "to", fetch = FetchType.LAZY)
+    private List<Request> toList;
 
     public void registerBrand(String carBrand){
         this.carBrand=carBrand;

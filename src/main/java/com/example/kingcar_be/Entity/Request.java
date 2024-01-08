@@ -18,14 +18,16 @@ public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "request_id")
-    private long requestId;
+    private Long requestId;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "fromList_memberId")
     private Member from;
 
     @NotNull
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "toList_memberId")
     private Member to;
 
     @NotNull
