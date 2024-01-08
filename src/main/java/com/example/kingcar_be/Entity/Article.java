@@ -2,8 +2,10 @@ package com.example.kingcar_be.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
@@ -51,5 +53,5 @@ public class Article {
     private String contents;
 
     @NotNull
-    private boolean connection;
+    private int connection;
 }

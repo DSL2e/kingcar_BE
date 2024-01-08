@@ -44,4 +44,7 @@ public class Member {
     public void registerBrand(String carBrand){
         this.carBrand=carBrand;
     }
+    public void registerModel(String carModel){
+        this.carModel=carModel;
+    }
 }

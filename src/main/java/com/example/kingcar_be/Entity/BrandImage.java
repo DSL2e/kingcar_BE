@@ -1,9 +1,13 @@
 package com.example.kingcar_be.Entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
+@Setter
+@Getter
 public class BrandImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
