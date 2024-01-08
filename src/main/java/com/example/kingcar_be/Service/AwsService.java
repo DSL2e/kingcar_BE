@@ -2,6 +2,7 @@ package com.example.kingcar_be.Service;
 
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.example.kingcar_be.DTO.BrandResponse;
+import com.example.kingcar_be.DTO.ModelResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
@@ -37,15 +38,16 @@ public class AwsService {
         }
         return list;
     }
+
         //브랜드 이미지 모두 조회
-        public List<BrandResponse> getBrandImageAll(String directory){
-            List<BrandResponse> list = new ArrayList<>();
+        public List<String> getBrandImageAll(String directory){
+            List<String> list = new ArrayList<>();
 
             for (int i = 1; i<7; i++){
                 String str = String.valueOf(i)+ ".png";
                 System.out.println(str);
                 str=getThumbnailPath(directory + str);
-                list.add(BrandResponse.registerBrand(i,str));
+                list.add(str);
             }
             return list;
         }
