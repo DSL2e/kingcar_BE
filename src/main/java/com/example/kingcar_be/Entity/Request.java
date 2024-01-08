@@ -2,12 +2,14 @@ package com.example.kingcar_be.Entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
-@NoArgsConstructor
 @Getter
+@Setter
+@NoArgsConstructor
 public class Request {
     public Request(Member from, Member to, Article article, boolean connection){
         this.from=from;

@@ -6,12 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import lombok.Setter;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.List;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 public class Article {
     public Article(String title, int price, String contents, String imgUrl, Course course, Member writer){

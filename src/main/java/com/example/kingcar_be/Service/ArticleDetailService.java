@@ -21,15 +21,25 @@ public class ArticleDetailService {
     private  final ArticleDetailRepository articleDetailRepository;
     private final MemberRepository memberRepository;
 
+    //상세페이지 조회
     public ArticleDetail detail(Long articleId){
         /*
         return articleDetailRepository.findById(articleId).map(ArticleDetail::new).orElseThrow(
                 () -> new IllegalArgumentException("아이디가 존재하지 않습니다")
         );*/
-
-        //article을 일단 가져오기
         Article article = articleDetailRepository.findById(articleId).orElseThrow();
-        //writer 가져오기
         return new ArticleDetail(article);
     }
+
+
+    //상세페이지 업데이트
+    public ArticleDetail update(Long articleId, boolean TorF){
+        Article existingarticle = articleDetailRepository.findById(articleId).orElseThrow();
+        existingarticle.setConnection(TorF);
+        articleDetailRepository.save(existingarticle);
+
+        return new ArticleDetail(existingarticle);
+
+    }
+
 }
