@@ -23,7 +23,7 @@ public class Request {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "article_id")
-    private Article article_id;
+    private Article article;
 
     @NotNull
     @Column(name = "connection")

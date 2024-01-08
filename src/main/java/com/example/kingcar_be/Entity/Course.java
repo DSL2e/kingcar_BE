@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.List;
+
 @Entity
 @Getter
 public class Course {
@@ -20,6 +22,6 @@ public class Course {
     @Column(name = "arrivals")
     private String arrivals;
 
-    @OneToOne
-    private Article article;
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    private List<Article> articles;
 }
