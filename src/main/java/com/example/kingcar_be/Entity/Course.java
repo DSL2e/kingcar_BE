@@ -10,18 +10,7 @@ import java.util.List;
 @Getter
 public class Course {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
     private long courseId;
 
-    @NotNull
-    @Column(name = "departure")
-    private String departure;
-
-    @NotNull
-    @Column(name = "arrivals")
-    private String arrivals;
-
-    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
-    private List<Article> articles;
 }
