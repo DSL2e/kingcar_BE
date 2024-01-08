@@ -11,6 +11,7 @@ import com.example.kingcar_be.Exception.RequestException;
 import com.example.kingcar_be.Repository.ArticleRepository;
 import com.example.kingcar_be.Repository.MemberRepository;
 import com.example.kingcar_be.Repository.RequestRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -44,21 +45,27 @@ public class RequestService {
         return Status.builder().status("ok").build();
     }
 
+    @Transactional
     public RandomChoiceResponse selectWinner(Long articleId){
         List<Request> challengers = requestRepository.findAllByArticleArticleId(articleId);
+        Article article = articleRepository.findById(articleId).orElseThrow();
 
         if(challengers.isEmpty()){
             throw new RequestException(ErrorCode.INVALID_REQUEST, "신청자가 없습니다.");
         }
 
-        if(challengers.get(0).isConnection()){
+        if(article.isConnection()){
             throw new RequestException(ErrorCode.INVALID_REQUEST, "이미 시승자가 선정되었습니다.");
         }
 
         //랜덤 숫자 생성
-        //TODO: 1명만 있을 때 따로 처리?
         Random random = new Random();
         int selectedIdx = random.nextInt(challengers.size());   //0~challengers.size()-1 까지의 무작위 int
+        challengers.get(selectedIdx).registerWinner();  //winner의 request
+
+        article.isConnected();
+
+
         Member winner = challengers.get(selectedIdx).getFrom();
         return RandomChoiceResponse.builder()
                 .winnerId(winner.getMemberId())

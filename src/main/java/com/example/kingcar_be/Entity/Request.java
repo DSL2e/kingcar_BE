@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 
-import java.util.List;
-
 @Entity
 @NoArgsConstructor
 @Getter
@@ -40,5 +38,9 @@ public class Request {
     @NotNull
     @Column(name = "connection")
     private boolean connection;
+
+    public void registerWinner(){
+        this.connection=true;
+    }
 
 }
