@@ -15,4 +15,9 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
     List<Request> findByFromToArticle(Long fromId, Long toId, Long articleId);
 
     List<Request> findAllByArticleArticleId(Long articleId);
+
+    @Query("select r from Request r where r.article.articleId = :articleId and r.connection = :connection")
+    Request findByArticleIdAndConnection(Long articleId, boolean connection);
+
+    List<Request> findAllByFrom_MemberIdAndConnectionIs(Long memberId, boolean connection);
 }
