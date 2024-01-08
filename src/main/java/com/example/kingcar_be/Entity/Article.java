@@ -1,5 +1,6 @@
 package com.example.kingcar_be.Entity;
 
+import com.example.kingcar_be.DTO.MasterNotice;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -59,5 +60,15 @@ public class Article {
 
     public void isConnected(){
         this.connection=true;
+    }
+
+    public MasterNotice toMasterNotice(String winnerNickname){
+        return MasterNotice.builder()
+                .articleId(this.getArticleId())
+                .carBrand(this.writer.getCarBrand())
+                .carModel(this.writer.getCarModel())
+                .winnerNickname(winnerNickname)
+                .build();
+
     }
 }
