@@ -11,4 +11,10 @@ public class ExceptionManager {
         return ResponseEntity.status(e.getErrorCode().getHttpStatus())
                 .body(e.getErrorCode().name()+" "+e.getMessage());
     }
+    @ExceptionHandler(NameDuplicationException.class)
+    public ResponseEntity<?> nameDuplicationExceptionHandler(NameDuplicationException e){
+        return ResponseEntity.status(e.getErrorCode().getHttpStatus())
+                .body(e.getErrorCode().name()+" "+e.getMessage());
+    }
+
 }
