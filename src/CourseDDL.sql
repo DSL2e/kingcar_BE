@@ -1,1 +1,1 @@
-INSERT INTO COURSE(DEPARTURE, ARRIVALS) VALUES ('건대입구', '잠실 한강공원'), ('강남', '건대입구')
+INSERT INTO COURSE VALUES (1), (2),(3)
